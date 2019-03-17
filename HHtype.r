@@ -1,10 +1,13 @@
 #Hodgkin-Huxley type model
 
-#install.packages(deSolve)
-#install.packages("phaseR")
+#installing and calling the necessary toolkits
+install.packages(deSolve)
+install.packages("phaseR")
+#once you've installed the two packages, you can comment out the above part
 library(deSolve)
 library(phaseR)
 
+#setting up our system of differential equations
 HHmodel <- function(t,y,parameters) {
   V <- y[1]
   n <- y[2]
@@ -25,22 +28,30 @@ HHmodel <- function(t,y,parameters) {
   list(dy)
 }
 
-HHmodel.flowfield <- flowField(HHmodel,xlim = c(0, 100),ylim = c(-50, 20),
-                parameters = c(1,0,8,20,1,-80,1,60,10,90,1),points = 19,add = FALSE,
-                main = "Neuron Firing Dynamics")
+#vector field (helps with plotting trajectories)
+#there's an argument for parameters...parameters = c(...)
+#this is where we define the parameter values
+#c(V,n,C,I,gL,gNa,mm,EL,nn,ENa,gk,Ek,tau)
 
+HHmodel.flowfield <- flowField(HHmodel,xlim = c(-100, 100),ylim = c(-50, 50),
+                parameters = c(1,0,8,20,1,-80,1,60,10,90,1),points = 19,add = FALSE,
+                main = "Neuron Firing Dynamics",xlab="V",ylab="n")
+
+#adding a grid to our plot
 grid()
 
-HHmodel.nullclines <- nullclines(HHmodel, xlim = c(0, 100), ylim = c(-50, 20),
+#plotting nullclines
+HHmodel.nullclines <- nullclines(HHmodel, xlim = c(-100, 100), ylim = c(-50, 50),
                  parameters = c(1,0,8,20,1,-80,1,60,10,90,1), points = 500,lwd=2,
                  col=c("red","blue"))
 
+#starting points for trajectories
+#(0,0)
+#(10,10)
+#(60,20)
+#you can change this
 y0 <- matrix(c(0, 0, 10, 10, 60, 20), ncol = 2, nrow = 3, byrow = TRUE)
 
+#trajectories
 HHmodel.trajectories <- trajectory(HHmodel, y0 = y0, t.end=10, tlim=c(-10,100),
                  parameters = c(1,0,8,20,1,-80,1,60,10,90,1), color=rep("black", 3))
-
-## numerical iterations
-## varying the synaptic current
-
-# time series plot
