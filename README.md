@@ -1,5 +1,7 @@
 # Mathbio-Models-Box
 
+I used to implement nullclines and phase portraits in MATLAB. Turns out you can do that in R, too!
+
 For nullcline and phase portrait implementations, see the following files:
 
 * Hodgkin-Huxley Type Model (HHtype.R)
