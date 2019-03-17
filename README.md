@@ -8,7 +8,7 @@ For nullcline and phase portrait implementations, see the following files:
 
 For my attempt at implementing in MATLAB before my exciting discovery of phaseR, see "HHnullclines.m" :)
 
-Some helpful resources:
+### Some helpful resources:
 
 [phaseR Documentation](https://cran.r-project.org/web/packages/phaseR/phaseR.pdf)
 
