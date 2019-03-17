@@ -1,6 +1,6 @@
 # Mathbio-Models-Box
 
-I used to implement nullclines and phase portraits in MATLAB. Turns out you can do that in R, too!
+I used to implement nullclines and phase portraits in MATLAB. Turns out you can do that in R, too! This is important as it provides an open-source alternative for mathematical biology projects typically done in MATLAB.
 
 For nullcline and phase portrait implementations, see the following files:
 
