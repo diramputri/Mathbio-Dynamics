@@ -1,4 +1,4 @@
-# NumeRical-Biology
+# Open-Computational-Bio
 
 I used to implement nullclines and phase portraits in MATLAB. Turns out you can do that in R, too! The repository includes work done in Python as well. This is important as it provides an open-source alternative for mathematical biology projects typically done in MATLAB.
 
