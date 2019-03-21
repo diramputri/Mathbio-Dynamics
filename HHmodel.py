@@ -1,6 +1,5 @@
 import tellurium as te
-import roadrunner
-import antimony
+from tellurium import ParameterScan as ps
 
 r = te.loada ('''
     model pathway()
@@ -26,3 +25,18 @@ end''')
 
 result = r.simulate(0, 10, 10, ['TIME','V'])
 r.plot(result)
+
+# parameter scan for synaptic current, I
+
+p = ps(r)
+
+p.endTime = 10
+p.numberOfPoints = 200
+p.polyNumber = 10
+p.startValue = 0
+p.endValue = 50
+#parameter to test
+p.value = 'I' 
+#variable you want to see affected by changing parameter
+p.selection = ['V']
+p.plotGraduatedArray()
